@@ -1,5 +1,7 @@
+var number = 12; 
 
-var fullName = 'Dang son'; 
-var agr = 26;
-alert(fullName);
-alert(agr);
+var main = number % 2;
+
+var inmain = main === 1;
+
+console.log(inmain)
