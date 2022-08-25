@@ -1,7 +1,6 @@
-var number = 12; 
+function showMessage(message) {
+    console.log(message);
+}
 
-var main = number % 2;
+showMessage("Hi anh em F8!", age, 123 );
 
-var inmain = main === 1;
-
-console.log(inmain)
