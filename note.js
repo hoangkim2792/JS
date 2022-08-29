@@ -142,4 +142,20 @@ function arrToObj(arr){
     return inf
 }
 
-console.log(arrToObj(arr)); // { name: 'Sơn Đặng', age: 18 }
+console.log(arrToObj(arr)); // { name: 'Sơn Đặng', age: 1
+// tạo ra phương thức my map
+
+Array.prototype.myMap = function (cb) {
+  var output = [];
+  var arraylength = this.length;
+  for (var i = 0; i < arraylength; ++i) {
+    var result = cb(this[i],i)
+    output.push(result)
+  }
+  return output
+}
+const numbers = [1,2,3]
+numbers.myMap(function(numbers) {
+
+})
+// 
