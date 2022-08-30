@@ -158,4 +158,96 @@ const numbers = [1,2,3]
 numbers.myMap(function(numbers) {
 
 })
-// 
+// forEach2 tự làm 
+
+Array.prototype.forEach2 = function(callback) {
+  for (var index in this) {
+    if (this.hasOwnproperty(index)) {
+      callback(this[index], index, this)
+    }
+  }
+}
+var courses = new Array(100)
+courses.push('java', 'python', 'javascript')
+courses.forEach2(function(courses, index, array) {
+  console.log(courses, index, array)
+})  
+
+// tạo ra phương thức filter ( dùng để lọc và tạo ra mảng với theo điều kiện mà mình đưa ra)
+
+Array.prototype.myFilter = function (cb) {
+  var output = [];
+  for (var index in this) {
+    if (this.hasOwnProperty(index)) {
+      var result = cb(this[index], index, this)
+      if (result) {
+        output.push(this[index])
+      }
+    }
+  }
+  return output
+}
+console.log(numbers.myFilter(function (number) {
+return number % 2 === 0;})) /*output: [2,4] */
+
+// tự tạo phương thức some (trả về kết quả đúng hoặc sai, trong mảng có phần từ nào đúng sẽ trả về true còn sai hết sẽ là false)
+
+Array.prototype.mySome = function(cb) {
+  for (var index in this) {
+    if (this.hasOwnProperty(index)) {
+      var result = cb(this[index], index, this)
+      if (result === true) {
+        return true;
+      }
+    }
+  }
+  return false
+}
+/*
+const numbers = [1, 3, 3, 5];
+
+console.log(numbers.mySome(function (number) {
+    return number % 2 === 0;
+})); Output: false
+
+console.log(numbers.mySome(function (number, index) {
+    return index % 2 === 0;
+})); Output: true
+
+console.log(numbers.mySome(function (number, index, array) {
+    return array.length % 2 === 0;
+})); Output: true
+ */
+//  tự tạo phương thức every ( các element phải đúng hết mới trả về true, dùng lại khi gặp false)
+
+Array.prototype.myEvery = function (cb) {
+  var output = true;
+  for (var index in this) {
+    if (this.hasOwnProperty(index)) {
+      var result = cb(this[index], index, this)
+      if (!result) {
+        output = false;
+        break;
+      }
+    }
+  }
+  return output
+}
+
+
+// Expected results
+
+// const numbers = [1, 3, 3, 5];
+
+// console.log(numbers.myEvery(function (number) {
+//     return number % 2 !== 0;
+// })); // Output: true
+
+// console.log(numbers.myEvery(function (number, index) {
+//     return index % 2 === 0;
+// })); // Output: false
+
+// console.log(numbers.myEvery(function (number, index, array) {
+//     return array.length % 2 === 0;
+// })); // Output: true
+
