@@ -251,3 +251,24 @@ Array.prototype.myEvery = function (cb) {
 //     return array.length % 2 === 0;
 // })); // Output: true
 
+// thêm các thuộc tính vào bằng Dom *
+// Thêm thuộc tính title có giá trị "F8 - Học lập trình để đi làm" cho thẻ h1.
+// Thêm thuộc tính data-title có giá trị "F8 - Học lập trình để đi làm" cho thẻ h1.
+// Thêm thuộc tính href có giá trị "https://fullstack.edu.vn/" cho thẻ a.
+// Thêm thuộc tính target có giá trị "_blank" cho thẻ a.
+// cách 1
+document.querySelector('h1').Title = "F8 - Học lập trình để đi làm";
+document.querySelector('h1').setAttribute('data-title', "F8 - Học lập trình để đi làm");
+document.querySelector('a').setAttribute('href', "https://fullstack.edu.vn/");
+document.querySelector('a').target = "_blank";
+// cách 2
+var  yc1 = document.querySelector('h1')
+yc1.title ="F8 - Học lập trình để đi làm"
+
+yc1.setAttribute('data-title',"F8 - Học lập trình để đi làm" )
+var yc3 = document.querySelector('a')
+yc3.href ="https://fullstack.edu.vn/"
+
+yc3.setAttribute('target',"_blank")
+
+// 
