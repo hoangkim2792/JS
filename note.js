@@ -251,3 +251,11 @@ Array.prototype.myEvery = function (cb) {
 //     return array.length % 2 === 0;
 // })); // Output: true
 
+
+// thêm một class vào hàng loạt thẻ div đã cho sẵn và sử dụng vòng lặp forEach
+
+var addClass = document.querySelectorAll('div');
+
+addClass.forEach(function(div)  {
+  div.classList.add('box')
+})
