@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "keyvalue\n",
+    "id": "3",
+    "content": "nodejs javascript PHP python Ruby",
+    "img": "[{\"key\":\"img\",\"value\":\"\",\"description\":\"\",\"type\":\"text\",\"enabled\":true}]",
+    "stastus": "offline"
+  }
+}
