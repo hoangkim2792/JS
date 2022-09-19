@@ -259,3 +259,63 @@ var addClass = document.querySelectorAll('div');
 addClass.forEach(function(div)  {
   div.classList.add('box')
 })
+
+// Thêm/sửa/xóa khóa học với Fetch và REST API
+function handleUpdateCourse(courseId){
+  //fill data in form
+  getCourses(function(courses){
+      const course = courses.filter(x => x.id == courseId)[0];
+      reloadForm(course.name, course.description);
+  });
+  //get editBtn of form
+  var editBtn = document.getElementById('edit');
+  editBtn.addEventListener('click', function(){
+      var name = document.querySelector('input[name="name"]').value;
+      var description = document.querySelector('input[name="description"]').value;
+      
+      var formData = {
+          name: name,
+          description: description
+      }
+
+      UpdateForm(formData, courseId, function(){
+          getCourses(renderCourses);
+          reloadForm();
+      })
+  })
+}
+
+//Nếu nhấn "Sửa" thì ẩn nút Create và hiện nút Update của form
+function reloadForm(name='', description='') {
+  document.querySelector('input[name="name"]').value = name;
+  document.querySelector('input[name="description"]').value = description;
+  if(name == '' && description == ''){
+      document.querySelector('#create').style.display = 'block';
+      document.querySelector('#edit').style.display = 'none';
+  }
+  else{
+      document.querySelector('#create').style.display = 'none';
+      document.querySelector('#edit').style.display = 'block';
+  }
+}
+
+function UpdateForm(data, courseId, callback){
+var options = {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+  };
+  fetch(courseApi + '/' + courseId, options)
+      .then(response => response.json())
+      .then(callback);
+}
+
+// sử dụng arrow function để tạo hàm sum a và b
+
+const sum = (a, b) => a + b; 
+
+// Expected results
+console.log(sum(1, 2)) // Output: 3
+console.log(sum(2, 2)) // Output: 4

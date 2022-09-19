@@ -18,6 +18,12 @@
     "id": "3",
     "content": "nodejs javascript PHP python Ruby",
     "img": "[{\"key\":\"img\",\"value\":\"\",\"description\":\"\",\"type\":\"text\",\"enabled\":true}]",
-    "stastus": "offline"
+    "stastus": [
+      "offline",
+      "offline"
+    ],
+    "text": "def",
+    "key ": "online",
+    "tast": "online\n"
   }
 }
